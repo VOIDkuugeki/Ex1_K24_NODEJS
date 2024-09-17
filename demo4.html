@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo4</title>
+    <link rel="stylesheet" href="demo4.css">
+</head>
+<body>
+    <div class="custom-form">
+        <div class="form-title">
+            <b>BANG DIEM CUA EM</b>
+        </div>
+        <div class="form-group">
+            
+            <div class="first-input">
+                <label for="semester1_input">Semester1:</label>
+                <input type="number" id="semester1_input" min="0" max="10">
+            </div>
+
+            <div class="second-input">
+                <label for="semester2_input">Semester2:</label>
+                <input type="number" id="semester2_input" min="0" max="10">
+            </div>
+
+            <div class="third-input">
+                <label for="year_input">Year:</label>
+                <select id="year_input"> 
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            
+        <div class="form-result">
+            <div class="summarise">
+                <label for="summarise">Summarise:</label>
+                <input type="text" id="summarise" disabled>
+            </div>
+            <div id="rate">
+
+            </div>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" onclick="calculateSummary()">OK</button>
+            <button type="button">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        function calculateSummary() {
+            const semester1 = parseFloat(document.getElementById('semester1_input').value) || 0;
+            const semester2 = parseFloat(document.getElementById('semester2_input').value) || 0;
+            const year = parseInt(document.getElementById('year_input').value) || 1;
+
+            const summary = (semester1 + semester2 * year) / (year + 1);
+            document.getElementById('summarise').value = summary % 1 == 0 ? summary : summary.toFixed(10);
+
+            let rateText;
+            if (summary >= 9) {
+                rateText = "Hoc sinh xuat sac";
+            } else if (summary >= 8) {
+                rateText = "Hoc sinh gioi";
+            } else if (summary >= 6.5) {
+                rateText = "Hoc sinh kha";
+            } else if (summary >= 5) {
+                rateText = "Hoc sinh trung binh";
+            } else {
+                rateText = "Hoc sinh yeu";
+            }
+            document.getElementById('rate').innerText = rateText;
+        }
+    </script>
+</body>
+</html>

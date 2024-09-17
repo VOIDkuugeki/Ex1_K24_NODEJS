@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo3</title>
+    <link rel="stylesheet" type="text/css" href="demo3.css">
+</head>
+<body>
+    <!-- <p id="res">Ket qua la</p>
+    <div class="content"></div>
+    <script type="text/javascript">
+        var a = "Hello";
+        var b = "World!";
+        var c = a + " " + b;
+
+        document.getElementById("res").innerHTML = c;
+        document.getElementById("res").style = "color: red; font-size: 30px; background-color: yellow;";
+    </script> -->
+
+    <script type="text/javascript">
+        for (var j = 0; j < 6; j++) {
+        
+            if (j % 2 == 0) {
+                for (var i = 0; i < 10; i++) {
+                    document.write("<div class='box' style='background-color: gray;'></div>");
+                }
+            } else {
+                for (var i = 0; i < 10; i++) {
+                    document.write("<div class='box' style='background-color: red;'></div>");
+                }
+            }
+            // for (var i = 0; i < 10; i++) {
+            //     document.write("<div class='box'></div>");
+            //     // document.getElementsByClassName("box")[i].style = "width: 5px; height:5px; background-color:yellow; border: 1px solid;"            
+            // }
+
+            document.write("<div style='clear:both'></div>");
+        }
+    </script>
+</body>
+</html>
